@@ -20,7 +20,7 @@ import Contact from "./components/ContactUs";
 import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Login";
 import SignUp from "./pages/Signup";
-import AboutUs from "./pages/AboutUs.js";
+import AboutUs from "./pages/AboutUs";
 import Search from "./pages/Search";
 import AddDestination from "./pages/AddDestination";
 import SearchResults from "./components/SearchResults";
