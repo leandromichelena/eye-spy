@@ -25,6 +25,7 @@ import Search from "./pages/Search";
 import AddDestination from "./pages/AddDestination";
 import SearchResults from "./components/SearchResults";
 import Dashboard from "./pages/Dashboard";
+import NotFound from "./pages/NotFound";
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -64,6 +65,7 @@ function App() {
               <Route exact path="/add-destination" element={<AddDestination />} />
               <Route exact path="/search-results" element={<SearchResults />} />
               <Route exact path="/dashboard" element={<Dashboard />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
           <Footer />
