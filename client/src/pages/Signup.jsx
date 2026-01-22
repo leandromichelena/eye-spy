@@ -40,89 +40,93 @@ const SignUp = () => {
   };
 
   return (
-    <main className="container p-5 mb-5">
-      <div className="d-flex justify-content-center align-items-center">
-        <div className="px-5 mx-5">
-          <div>
-            <img
-              src={loginImg}
-              class="d-md-none d-lg-block d-sm-none d-md-block d-none d-sm-block"
-              alt="couple paddle boarding"
-            />
-          </div>
+    <main className="container-fluid px-3 px-md-5 py-4 py-md-5 mb-5">
+      <div className="row justify-content-center align-items-center min-vh-75">
+        <div className="col-12 col-md-6 col-lg-5 mb-4 mb-md-0 d-flex justify-content-center">
+          <img
+            src={loginImg}
+            className="img-fluid d-none d-md-block"
+            alt="couple paddle boarding"
+            style={{ maxWidth: "400px", height: "auto" }}
+          />
         </div>
-        {/* need to add following line to form once mutations are complete */}
-        {/* onSubmit={handleFormSubmit} */}
-        <form className="px-5 mx-5 col" onSubmit={handleFormSubmit}>
-          <div className="d-flex row">
-            <div>
-              <h1 className="mb-5 pb-3 border-bottom border-dark text-center header-font">
+        <div className="col-12 col-md-6 col-lg-5">
+          <form
+            onSubmit={handleFormSubmit}
+            className="bg-white p-4 rounded shadow-sm"
+          >
+            <div className="text-center mb-4">
+              <h1 className="header-font mb-4 pb-3 border-bottom border-dark">
                 Sign Up Today!
               </h1>
             </div>
             {/* input username */}
-            <div>
-              <label htmlFor="username" className="form-label pe-3">
+            <div className="mb-3">
+              <label htmlFor="username" className="form-label fw-bold">
                 Username
               </label>
               <input
-                className="form-control p-1 mb-4"
+                className="form-control p-2"
                 placeholder="Your username"
                 name="username"
                 type="text"
                 id="username"
                 value={formState.username}
                 onChange={handleChange}
+                required
               />
             </div>
             {/* input email */}
-            <div>
-              <label htmlFor="email" className="form-label pe-3">
+            <div className="mb-3">
+              <label htmlFor="email" className="form-label fw-bold">
                 Email
               </label>
               <input
-                className="form-control p-1 mb-4"
+                className="form-control p-2"
                 placeholder="Your email"
                 name="email"
                 type="email"
                 id="email"
                 value={formState.email}
                 onChange={handleChange}
+                required
               />
             </div>
             {/* input password */}
-            <div>
-              <label htmlFor="password" className="form-label pe-3">
+            <div className="mb-4">
+              <label htmlFor="password" className="form-label fw-bold">
                 Password
               </label>
               <input
-                className="form-control p-1 mb-4"
+                className="form-control p-2"
                 placeholder="********"
                 name="password"
                 type="password"
                 id="password"
                 value={formState.password}
                 onChange={handleChange}
+                required
               />
             </div>
-            {/* submit login data */}
+            {/* submit signup data */}
             <div className="text-center">
               <button
-                className="all-btns p-2 rounded"
+                className="all-btns p-2 px-4 rounded fw-bold"
                 type="submit"
-                id="submit-login"
+                id="submit-signup"
               >
                 Sign Up
               </button>
-              <br></br>
-              <br></br>
-              <br></br>
-              <br></br>
             </div>
-          </div>
-        </form>
-        {/* catch signup error */}
-        {error && <div>Signup failed</div>}
+          </form>
+
+          {/* catch signup error */}
+          {error && (
+            <div className="alert alert-danger mt-3 text-center">
+              Signup failed. Please try again.
+            </div>
+          )}
+        </div>
       </div>
     </main>
   );

@@ -6,7 +6,7 @@ import {
   InMemoryCache,
   createHttpLink,
 } from "@apollo/client";
-import { setContext } from '@apollo/client/link/context';
+import { setContext } from "@apollo/client/link/context";
 
 // bootstrap styling
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -26,17 +26,18 @@ import AddDestination from "./pages/AddDestination";
 import SearchResults from "./components/SearchResults";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
+import MeetTheDevelopers from "./pages/MeetTheDevelopers";
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: "/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
+  const token = localStorage.getItem("id_token");
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : '',
+      authorization: token ? `Bearer ${token}` : "",
     },
   };
 });
@@ -47,14 +48,12 @@ const client = new ApolloClient({
 });
 
 function App() {
-
   return (
     <ApolloProvider client={client}>
-
       <Router>
-        <div className="">
+        <div className="d-flex flex-column min-vh-100">
           <Header />
-          <div className="">
+          <div className="flex-grow-1" id="content-block">
             <Routes>
               <Route exact path="/" element={<LandingPage />} />
               <Route exact path="/contact-us" element={<Contact />} />
@@ -62,9 +61,18 @@ function App() {
               <Route exact path="/sign-up" element={<SignUp />} />
               <Route exact path="/about-us" element={<AboutUs />} />
               <Route exact path="/activity-search" element={<Search />} />
-              <Route exact path="/add-destination" element={<AddDestination />} />
+              <Route
+                exact
+                path="/add-destination"
+                element={<AddDestination />}
+              />
               <Route exact path="/search-results" element={<SearchResults />} />
               <Route exact path="/dashboard" element={<Dashboard />} />
+              <Route
+                exact
+                path="/meet-the-developers"
+                element={<MeetTheDevelopers />}
+              />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>

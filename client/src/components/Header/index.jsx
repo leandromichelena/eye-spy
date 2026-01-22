@@ -26,10 +26,8 @@ function Header() {
             <Link to="/">
               <img
                 src={logo}
-                // class="d-md-none d-lg-block d-sm-none d-md-block d-none d-sm-block"
                 alt="Eye Spy Logo"
-                height={175}
-                width={175}
+                className="logo-responsive"
               ></img>
             </Link>
           </Navbar.Brand>

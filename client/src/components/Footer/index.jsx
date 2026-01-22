@@ -6,7 +6,7 @@ function Footer() {
     <footer className="p-3 text-center">
       <div>
         <Link
-          to="https://github.com/leandromichelena/eye-spy?tab=readme-ov-file#contributors"
+          to="/meet-the-developers"
           className="font-color text-decoration-none"
         >
           Meet The Developers
